@@ -1,0 +1,45 @@
+<head>
+<link href="img/logo.png" rel="shortcut icon"/>
+<div id="slide">
+<?php include'slider.php'?>
+</div>
+<div>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, 
+user-scalable=0" />
+<script src='intelxdk.js'></script>
+<script type="text/javascript">
+/* Intel native bridge is available */
+var onDeviceReady=function(){
+//hide splash screen
+intel.xdk.device.hideSplashScreen();
+};
+document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
+</script>
+<html>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCjDZdj2AvPoKuWXIpKZY9IHDry1NAOCUQ&sensor=true">
+</script> 
+<script>
+var myCenter=new google.maps.LatLng(-7.984528, 112.620253);
+function initialize()
+{
+var mapProp = {
+center:myCenter,
+zoom:15,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker=new google.maps.Marker({
+position:myCenter,
+});
+marker.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</div> 
+</head>
+<body>
+<!-- content goes here-->
+<div id="googleMap" style="width:1000px;height:350px;"></div>
+</body>
